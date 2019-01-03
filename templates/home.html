@@ -1,0 +1,106 @@
+{% extends "bootstrap/base.html" %}
+{% block title %} Steering behaviour {% endblock title %}
+
+{% block head %}
+{{ super() }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.js"></script>
+<script src={{ url_for('send_static', path='sketch.js') }}></script>
+<script src={{ url_for('send_static', path='circle.js') }}></script>
+{% endblock head %}
+
+{% block content %}
+<div class="container">
+  <h1 class="text-center"> Steering behaviour </h1>
+  <p class="text-justify">
+    <small>
+      Steering behaviours is a beautiful class of techniques to computationally reproduce natural
+      bahaviours.
+      Each particle here is independent, and influenced only by its immediate surrounding,
+      fleeing the mouse and trying to get back home to the text. See
+      <a href="https://www.red3d.com/cwr/papers/1999/gdc99steer.pdf">this</a>
+      1999 paper by Craig Reynolds which introduced these techniques.
+    </small>
+  </p>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6 small">
+        <table class="table table-striped">
+          <tr>
+
+          </tr>
+          <tr>
+            <td>
+              Message
+            </td>
+            <td>
+              <div id='messageBox'>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Text Size
+            </td>
+            <td>
+              <div id='textSize'>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Number of particles
+            </td>
+            <td>
+              <div id='nParticles'>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Desire
+            </td>
+            <td>
+              <div id='maxSeekVel'>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Fear
+            </td>
+            <td>
+              <div id='maxFleeVel'>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Sight
+            </td>
+            <td>
+              <div id='sight'>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div id='redrawButton'>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="
+        col-xs-6">
+        <div id="canvasHolder" align="center">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+{% endblock content %}
